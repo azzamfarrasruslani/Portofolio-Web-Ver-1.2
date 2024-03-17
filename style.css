@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "IBM Plex Mono";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #37167d;
+  min-height: 4000px;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1px 2%;
+  position: fixed;
+  right: 1rem;
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+}
+
+.navbar .logo img {
+  width: 6rem;
+}
+
+.navbar .navbar-nav a {
+  color: #000000;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 2rem 1.3rem;
+  color: #f8f6f4;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #ffbd59;
+  transition: 0.3s;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid;
+  transform: scaley(0);
+  transition: 0.3s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scale(0.5);
+}
+
+/* hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  /* background-image: url("gambar/12.svg"); */
+  background-image: url("gambar/16.svg");
+  background-repeat: no-repeat;
+  background-size: 99rem 110rem;
+  background-position: center;
+  position: relative;
+}
+
+.hero .content {
+  padding: 4rem 5%;
+  margin-left: 7rem;
+}
+
+.hero .content h1 {
+  font-family: "Poppins";
+  font-size: 6rem;
+  color: #ffbd59;
+}
+
+.hero .content h2 {
+  font-family: "IBM Plex Mono";
+  font-size: 2rem;
+  color: #f8f6f4;
+  font-weight: 500;
+  line-height: 1px;
+}
+
+.wrapper {
+  display: flex;
+}
+.wrapper .first-text {
+  font-size: 2rem;
+  color: #fff;
+}
+.wrapper .sec-texts {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+}
+.sec-texts li {
+  position: relative;
+  top: 0;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  list-style: none;
+  padding: 0 20px;
+  animation: slide 12s steps(1) infinite, colorful 6s infinite;
+}
+@keyframes slide {
+  100% {
+    top: -360px;
+  }
+}
+
+.sec-texts li span {
+  position: relative;
+}
+.sec-texts li span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 400px;
+  height: 300px;
+  background: #37167d;
+  border-left: 2px solid rgb(255, 255, 255);
+  animation: typing 2s steps(10) infinite alternate;
+}
+@keyframes typing {
+  100% {
+    left: 100%;
+    margin: 0 -35px 0 35px;
+  }
+}
+
+.hero .content .cta {
+  background-color: #ffbd59;
+  padding: 0.6rem 3rem;
+  margin-top: 1rem;
+  display: inline-block;
+  font-family: "Poppins";
+  color: #f8f6f4;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+}
+
+/* About Section */
+.about {
+  padding: 9rem 8% 1.4rem;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #ffbd59;
+  font-family: "Poppins";
+}
+
+.about .row {
+  display: flex;
+}
+
+.about .row .about-img {
+  flex: 1rem 1 4rem;
+}
+
+.about .row .about-img img {
+  width: 30rem;
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 5rem 10rem;
+}
+
+.about .row .content p {
+  max-width: 40rem;
+  text-align: justify;
+  color: #f8f6f4;
+  font-family: "Poppins";
+  font-weight: 200;
+}
+.about .row .content .cv {
+  background-color: #ffbd59;
+  border-radius: 1rem;
+  display: inline-block;
+  font-family: "Poppins";
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  margin-top: 1rem;
+  color: #f8f6f4;
+}
+
+/* Potofolio Section */
+.porto {
+  padding: 9rem 8% 1.4rem;
+}
+
+.porto h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #ffbd59;
+  font-family: "Poppins";
+}
