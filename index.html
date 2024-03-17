@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <title>Azzam Farras Ruslani</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Baloo+Thambi+2&family=Barlow+Semi+Condensed:ital,wght@1,100&family=Montserrat:wght@200;300;500;700&family=Poppins:wght@100;200;300;500;700&family=Roboto:wght@300&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <!-- Google Fonts Link For Icons -->
+    <script src="https://kit.fontawesome.com/c23fedd423.js" crossorigin="anonymous"></script>
+    <!-- Icon di head -->
+    <link rel="shortcut icon" href="gambar/logo1.png">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar">
+        <a href="#" class="logo"><img src="gambar/logo1.png" alt="logo"></a>
+        <div class="navbar-nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#porto">Portofolio</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- hero section start -->
+    <section class="hero" id="home">
+        <main class="content">
+            <h1>Azzam.</h1>
+            <!-- <h2>I'am Web Developer</h2> -->
+            <div class="wrapper">
+                <span class="first-text">I'm a</span>
+                <ul class="sec-texts">
+                    <li><span>Web Developer</span></li>
+                </ul>
+            </div>
+            <a href="#about" class="cta">More</a>
+        </main>
+    </section>
+    <!-- Hero Section end -->
+
+    <!-- About section start -->
+    <section class="about" id="about">
+        <h2 class="ket">About me</h2>
+        <div class="row" class="about">
+            <div class="about-img">
+                <img src="gambar/13.png" alt="About Us">
+            </div>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo excepturi voluptatibus ipsum inventore
+                    tempore, nihil quidem adipisci minus nemo? Sunt quo odio assumenda, dolore consectetur ipsa ipsam
+                    doloribus suscipit ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium
+                    maiores, accusantium nam nemo molestias veritatis laborum provident excepturi voluptates voluptatem
+                    reprehenderit quos eum amet similique perferendis cupiditate pariatur aperiam.</p>
+                <a href="gambar/cv.png" class="cv" target=" ">Show CV</a>
+            </div>
+
+        </div>
+    </section>
+    <!-- About section end -->
+
+    <!-- Portofolio Section  Start-->
+    <section class="porto" id="porto">
+        <h2>Portofolio</h2>
+    </section>
+    <!-- Portofolio Section  End-->
+    <!--===== SCROLL REVEAL =====-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--My Javascript-->
+    <script src="js/script.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script>
+        function getOffSet() {
+            var _offset = 450;
+            var windowHeight = window.innerHeight;
+
+            if (windowHeight > 500) {
+                _offset = 400;
+            }
+            if (windowHeight > 680) {
+                _offset = 300
+            }
+            if (windowHeight > 830) {
+                _offset = 210;
+            }
+
+            return _offset;
+        }
+
+        function setParallaxPosition($doc, multiplier, $object) {
+            var offset = getOffSet();
+            var from_top = $doc.scrollTop(),
+                bg_css = 'center ' + (multiplier * from_top - offset) + 'px';
+            $object.css({ "background-position": bg_css });
+        }
+        // Parallax function
+        // Adapted based on https://codepen.io/roborich/pen/wpAsm        
+        var background_image_parallax = function ($object, multiplier, forceSet) {
+            multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+            multiplier = 1 - multiplier;
+            var $doc = $(document);
+            // $object.css({"background-attatchment" : "fixed"});
+
+            if (forceSet) {
+                setParallaxPosition($doc, multiplier, $object);
+            } else {
+                $(window).scroll(function () {
+                    setParallaxPosition($doc, multiplier, $object);
+                });
+            }
+        };
+
+        var background_image_parallax_2 = function ($object, multiplier) {
+            multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.5;
+            multiplier = 1 - multiplier;
+            var $doc = $(document);
+            $object.css({ "background-attachment": "fixed" });
+
+            $(window).scroll(function () {
+                if ($(window).width() > 768) {
+                    var firstTop = $object.offset().top,
+                        pos = $(window).scrollTop(),
+                        yPos = Math.round((multiplier * (firstTop - pos)) - 186);
+
+                    var bg_css = 'center ' + yPos + 'px';
+
+                    $object.css({ "background-position": bg_css });
+                } else {
+                    $object.css({ "background-position": "center" });
+                }
+            });
+        };
+
+        $(function () {
+            // Hero Section - Background Parallax
+            background_image_parallax($(".hero"), 0.30, false);
+        });
+    </script>
+</body>
+
+
+</html>
